@@ -1,14 +1,20 @@
 import { useRouter } from 'next/router'
 import { getReceita } from "../../lib/database";
 import Head from "next/head";
+import Script from 'next/script';
 
 function Home(props) {
-  return <>
+  if (props.id == null) return <Script dangerouslySetInnerHTML={{
+    __html: "window.location.replace(`https://paneladiferro.xdalete.repl.co/404`)",
+  }}/>
+  else return <>
     <Head>
-      <title>Receita: {props.titulo}</title>
+      <title>{`Receita: ${props.titulo}`}</title>
     </Head>
     <section className="container">
       <h1>{props.titulo}</h1>
+      <img src="/receitas-thumb/1.jpg" alt="thumb receita" />
+
     </section>
   </>
 }
