@@ -3,12 +3,8 @@ import { Button } from "reactstrap"
 const axios = require('axios').default;
 
 export const UiFileInputButton = (props) => {
-  const fileInputRef = useRef(null);
   const formRef = useRef(null);
 
-  const onClickHandler = () => {
-    fileInputRef.current?.click();
-  };
 
   const onChangeHandler = (event) => {
     if (!event.target.files?.length) {
@@ -32,25 +28,18 @@ export const UiFileInputButton = (props) => {
         {props.label}
       </Button>
       <input
-        accept={props.acceptedFileTypes}
-        multiple={props.allowMultipleFiles}
+        accept="image/png, image/jpeg"
+        multiple={false}
         name={props.uploadFileName}
         onChange={onChangeHandler}
-        ref={fileInputRef}
-        style={{ display: 'none' }}
         type="file"
       />
     </form>
   );
 };
 
-UiFileInputButton.defaultProps = {
-  acceptedFileTypes: '',
-  allowMultipleFiles: false,
-};
-
 export const IndexPage = (props) => {
-  
+
   const onChange = async (formData) => {
     const config = {
       headers: { 'content-type': 'multipart/form-data' },
@@ -59,7 +48,7 @@ export const IndexPage = (props) => {
       },
     };
 
-    const response = await axios.post('/api/uploads', formData, config);
+    const response = await axios.post('/api/teste', formData, config);
 
     console.log('response', response.data);
   };
@@ -76,7 +65,7 @@ export const IndexPage = (props) => {
 function MyApp({ Component, pageProps }) {
 
   return <section className="container">
-    <IndexPage/>
+    <IndexPage />
   </section>
 }
 
