@@ -4,7 +4,7 @@
     font-size: 14px;
     padding: 0;
     margin-bottom: 40px;
-    transition-duration: .20s;
+    transition-duration: 0.2s;
 
     &:hover {
         .capaFundo {
@@ -16,7 +16,7 @@
 }
 
 .capaFundo {
-    transition-duration: .20s;
+    transition-duration: 0.2s;
     height: 110px;
     position: relative;
     overflow-y: auto;
@@ -55,5 +55,4 @@
 .LerMais,
 .banner {
     width: 300px;
-
 }

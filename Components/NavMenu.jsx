@@ -25,10 +25,10 @@ const NavMenu = () => {
     <Navbar dark expand="md" light container fixed="top" className={styles.mainMenu}>
       <NavbarBrand>
         {
-        //<img src="images/favicon.ico" alt="Logo" />
+          //<img src="images/favicon.ico" alt="Logo" />
         }
         <Link href={"/"}>
-        <span style={{ fontWeight: "bold", padding: "10px"}}>PanelaD<span style={{ color: "green" }}>iF</span>erro</span></Link>
+          <span style={{ fontWeight: "bold", padding: "10px" }}>PanelaD<span style={{ color: "green" }}>iF</span>erro</span></Link>
       </NavbarBrand>
       <NavbarToggler onClick={toggle} />
       <Collapse navbar isOpen={open}>
