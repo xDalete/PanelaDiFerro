@@ -1,16 +1,18 @@
-.banner {
+.link {
+  text-decoration: none;
+}
+
+.receita {
     background-color: rgb(230, 230, 230);
     color: rgb(92, 92, 92);
     font-size: 14px;
     padding: 0;
     margin-bottom: 40px;
     transition-duration: 0.2s;
-
     &:hover {
         .capaFundo {
             height: 140px;
         }
-
         margin-bottom: 10px;
     }
 }
@@ -53,6 +55,6 @@
 }
 
 .LerMais,
-.banner {
+.receita {
     width: 300px;
 }

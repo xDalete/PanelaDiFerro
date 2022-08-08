@@ -84,13 +84,13 @@ function Home() {
     <div className="container">
       <div className="row row-cols-mg-4">
         {
-          receitas.map(teste => {
+          receitas.map(receita => {
             return <div className="col">
-              <Receita key={teste.id}
-                capa={teste.capa}
-                titulo={teste.titulo}
-                descricao={teste.descricao}
-                id={teste.id}
+              <Receita key={receita.id}
+                capa={receita.capa}
+                titulo={receita.titulo}
+                descricao={receita.descricao}
+                id={receita.id}
               />
             </div>
           })

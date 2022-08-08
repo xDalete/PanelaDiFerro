@@ -7,16 +7,13 @@ export const UiFileInputButton = (props) => {
 
 
   const onChangeHandler = (event) => {
+    console.log(event.target.name)
     if (!event.target.files?.length) {
       return;
     }
 
     const formData = new FormData();
-
-    Array.from(event.target.files).forEach((file) => {
-      formData.append(event.target.name, file);
-    });
-
+    formData.append(event.target.name, event.target.files[0], "");
     props.onChange(formData);
 
     formRef.current?.reset();
@@ -24,9 +21,6 @@ export const UiFileInputButton = (props) => {
 
   return (
     <form ref={formRef}>
-      <Button type="button" onClick={onClickHandler}>
-        {props.label}
-      </Button>
       <input
         accept="image/png, image/jpeg"
         multiple={false}
@@ -41,6 +35,7 @@ export const UiFileInputButton = (props) => {
 export const IndexPage = (props) => {
 
   const onChange = async (formData) => {
+    console.log(formData)
     const config = {
       headers: { 'content-type': 'multipart/form-data' },
       onUploadProgress: (event) => {
@@ -56,7 +51,7 @@ export const IndexPage = (props) => {
   return (
     <UiFileInputButton
       label="Upload Single File"
-      uploadFileName="theFiles"
+      uploadFileName="thumb"
       onChange={onChange}
     />
   );

@@ -17,7 +17,7 @@ const apiRoute = nextConnect({
   },
 });
 
-apiRoute.use(upload.array('theFiles'));
+apiRoute.use(upload.array('thumb'));
 
 apiRoute.post((req, res) => {
   res.status(200).json({ data: 'success' });
@@ -27,6 +27,6 @@ export default apiRoute;
 
 export const config = {
   api: {
-    bodyParser: false, // Disallow body parsing, consume as stream
+    bodyParser: false,
   },
 };
