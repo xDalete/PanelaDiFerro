@@ -16,7 +16,6 @@ function Receita({ capa, titulo, descricao, id }) {
         </div>
       </div>
     </a>
-
   </div>
 }
 

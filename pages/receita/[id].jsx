@@ -14,13 +14,14 @@ function Home(props) {
         <section className={`container`}>
             <div className={"d-flex flex-column align-items-center"}>
                 <h1 className={`${styles.title}`}>{props.titulo}</h1>
-                <img src={`/receitas-thumb/${props.img}`} alt="thumb receita" className={`${styles.title}`} style={{ width: "30rem" }} />
+                <img src={`/receitas-thumb/${props.img}`} alt="thumb receita" className={`border 
+border-4 border-light ${styles.image}`} />
             </div>
-            <div className={`card ${styles.spacing}`}>
+            <div className={`card shadow bg-body ${styles.spacing}`}>
                 <div className={"card-body"}>
                     <div className={"row"}>
                         <div className={"col-sm-6 col-md-6 col-lg-6 border-end border-dark"}>
-                            <h2>Ingredientes</h2>
+                            <h2 className={`${styles.title2}`}>Ingredientes</h2>
                             <ul>
                                 {
                                     props.ingredientes.map(ingrediente => {
@@ -36,13 +37,19 @@ function Home(props) {
                             </div>
                             <div className={"d-flex flex-row"}>
                                 <i className={`large material-icons me-2 ${styles.icon}`}>free_breakfast</i>
-                                <p>{props.porcoes} Porções</p>
+                                <p>Rendimento: {props.porcoes} Porções</p>
                             </div>
                         </div>
                     </div>
                     <div>
-                        <h2>Modo de Preparo</h2>
-                        <p>{props.modo_preparo}</p>
+                        <h2 className={`${styles.title2}`}>Modo de Preparo</h2>
+                        <p className={`mx-4 ${styles.justify}`}>{props.modo_preparo}</p>
+                    </div>
+                    <div className={"row"}>
+                        <div className={"col-md-12"}>
+                            <h2 className={`${styles.title2}`}>Observações</h2>
+                            <p className={`mx-4 ${styles.justify}`}>{props.observacoes}</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -51,6 +58,10 @@ function Home(props) {
 }
 
 export async function getServerSideProps({ res, query }) {
+    res.setHeader(
+        'Cache-Control',
+        'public, s-maxage=600'
+    )
     return { props: getReceita(query.id) }
 }
 
