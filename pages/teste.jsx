@@ -20,7 +20,8 @@ function MyApp() {
         const config = {
           headers: { 'content-type': 'multipart/form-data' },
           onUploadProgress: (event) => {
-            setState(`Current progress: ${Math.round((event.loaded * 100) / event.total)}`);
+            setProgress(Math.round((event.loaded * 100) / event.total))
+            setState(`${Math.round((event.loaded * 100) / event.total)}%`);
           },
         };
         const formData = new FormData();

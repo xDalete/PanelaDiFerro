@@ -25,7 +25,7 @@ border-4 border-light ${styles.image}`} />
               <ul>
                 {
                   props.ingredientes.map(ingrediente => {
-                    return <li>{ingrediente}</li>
+                    return <li key={ingrediente} >{ingrediente}</li>
                   })
                 }
               </ul>
