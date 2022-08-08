@@ -3,9 +3,10 @@ import { Button, Input } from "reactstrap"
 const axios = require('axios').default;
 
 function MyApp() {
-  var tem_imagem = false;
-  var img = ""
-  var file = { name: "" }
+  var [tem_imagem, setTem_imagem] = useState(false);
+  var [img, setImg] = useState("");
+  var [file, setFile] = useState({name: ""});
+  const [progress, setProgress] = useState(0);
   const [state, setState] = useState("");
   const [titulo, setTitulo] = useState();
   const [ingredientes, setIngredientes] = useState();
@@ -38,30 +39,33 @@ function MyApp() {
   }
   function onAddImage(event) {
     if (event.target.files[0]) {
-      tem_imagem = true
-      file = event.target.files[0]
-      img = `${file.name.split(".")[file.name.split(".").length - 1]}`
-      console.log(img)
+      setTem_imagem(true)
+      setFile(event.target.files[0])
+      setImg(`${event.target.files[0].name.split(".")[event.target.files[0].name.split(".").length - 1]}`)
     } else {
-      tem_imagem = false
+      setTem_imagem(false)
     }
-  }
+  }//geomorfologia codigo florestal hierarquia urbana mercado de trabalho
   return <section className="container">
-    <Input placeholder="Titulo" onChange={event => setTitulo(event.target.value)}></Input>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ingredientes (Separados por linha)" onChange={event => setIngredientes(event.target.value)}></textarea>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Modo de preparo" onChange={event => setModo_preparo(event.target.value)}></textarea>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Observações" onChange={event => setObservacoes(event.target.value)}></textarea>
-    <Input placeholder="Tempo de preparo" onChange={event => setTempo_preparo(event.target.value)}></Input>
-    <Input placeholder="Porções" onChange={event => setPorcoes(event.target.value)}></Input>
+    <Input className="mb-2" placeholder="Titulo" onChange={event => setTitulo(event.target.value)}></Input>
+    <textarea className="mb-2 form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ingredientes (Separados por linha)" onChange={event => setIngredientes(event.target.value)}></textarea>
+    <textarea className="mb-2 form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Modo de preparo" onChange={event => setModo_preparo(event.target.value)}></textarea>
+    <textarea className="mb-2 form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Observações" onChange={event => setObservacoes(event.target.value)}></textarea>
+    <Input className="mb-2" placeholder="Tempo de preparo" onChange={event => setTempo_preparo(event.target.value)}></Input>
+    <Input className="mb-2" placeholder="Porções" onChange={event => setPorcoes(event.target.value)}></Input>
     <input
+      className="mb-2"
       accept="image/png, image/jpeg"
       multiple={false}
       onChange={onAddImage}
       type="file"
     />
     <br />
-    <Button onClick={clico}>Salvar</Button>
+    <Button className="mb-2" onClick={clico}>Salvar</Button>
     <p>{state}</p>
+    <div className="border border-dark rounded" style={{width:"300px", height:"20px" }}>
+      <div style={{height:"100%",width:`${progress}%`, backgroundColor: "green"}}></div>
+    </div>
   </section>
 }
 
