@@ -5,6 +5,7 @@ export default (req, res) => {
     if (!req.body.titulo || !req.body.ingredientes || !req.body.modo_preparo || !req.body.tempo_preparo || !req.body.porcoes || !req.body.img) {
       res.status(400).json({ error: `Bad Request` })
     } else {
+      if (!req.body.observacoes) req.body.observacoes = "";
       let id = addReceita(req.body)
       res.status(200).json({ id })
     }
