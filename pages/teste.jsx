@@ -1,5 +1,5 @@
 import { useRef, useState } from "react"
-import { Button, Input } from "reactstrap"
+import { Button, Input, Textarea } from "reactstrap"
 const axios = require('axios').default;
 
 function MyApp() {
@@ -49,12 +49,12 @@ function MyApp() {
   }//geomorfologia codigo florestal hierarquia urbana mercado de trabalho
   return <section className="container">
     <Input className="mb-2" placeholder="Titulo" onChange={event => setTitulo(event.target.value)}></Input>
-    <textarea className="mb-2 form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Ingredientes (Separados por linha)" onChange={event => setIngredientes(event.target.value)}></textarea>
-    <textarea className="mb-2 form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Modo de preparo" onChange={event => setModo_preparo(event.target.value)}></textarea>
-    <textarea className="mb-2 form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Observações" onChange={event => setObservacoes(event.target.value)}></textarea>
+    <Input className="mb-2" type="textarea" id="exampleFormControlTextarea1" rows="3" placeholder="Ingredientes (Separados por linha)" onChange={event => setIngredientes(event.target.value)}></Input>
+    <Input className="mb-2" type="textarea" id="exampleFormControlTextarea1" rows="3" placeholder="Modo de preparo" onChange={event => setModo_preparo(event.target.value)}></Input>
+    <Input className="mb-2" type="textarea" id="exampleFormControlTextarea1" rows="3" placeholder="Observações" onChange={event => setObservacoes(event.target.value)}></Input>
     <Input className="mb-2" placeholder="Tempo de preparo" onChange={event => setTempo_preparo(event.target.value)}></Input>
     <Input className="mb-2" placeholder="Porções" onChange={event => setPorcoes(event.target.value)}></Input>
-    <input
+    <Input
       className="mb-2"
       accept="image/png, image/jpeg"
       multiple={false}
@@ -65,7 +65,7 @@ function MyApp() {
     <Button className="mb-2" onClick={clico}>Salvar</Button>
     <p>{state}</p>
     <div className="border border-dark rounded" style={{width:"300px", height:"20px" }}>
-      <div style={{height:"100%",width:`${progress}%`, backgroundColor: "green"}}></div>
+      <div style={{ transitionDuration: ".1s", height:"100%",width:`${progress}%`, backgroundColor: "green"}}></div>
     </div>
   </section>
 }
