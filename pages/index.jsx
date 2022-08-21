@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 function Home() {
     var [receitas, setReceitas] = useState([])
     useEffect(() => {
+      console.log("rodei")
         fetch('/api/home')
             .then(response => response.json())
             .then(data => setReceitas(data))
