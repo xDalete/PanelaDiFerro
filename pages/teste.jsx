@@ -3,6 +3,7 @@ import { Button, Input, Textarea } from "reactstrap"
 const axios = require('axios').default;
 
 function MyApp() {
+  console.log("sim")
   var [tem_imagem, setTem_imagem] = useState(false);
   var [img, setImg] = useState("");
   var [file, setFile] = useState({name: ""});
