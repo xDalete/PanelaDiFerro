@@ -1,1 +1,18 @@
-{"titulo":"Cajuzinho","ingredientes":["150 g de amendoim (sem sal e sem pele) torrado e moído","1/2 xícara de açúcar ","1/2 lata de leite condensado","2 colheres de chocolate em pó (achocolatado comum se preferir mais doce) ou (chocolate em pó solúvel)","1 colher de manteiga para untar as mãos","1 xícara de açúcar cristal ou demerara (prefiro demerara) para passar os doces","50 g de grãos de amendoim para enfeitar"],"modo_preparo":"Existem no mercado algumas marcas de amendoim torrado e moído. Se você as preferir, como eu, preste atenção para não comprar amendoim salgado. Caso prefira torrar em casa, a receita vai demorar um pouco mais (1 hora e meia). Você precisará descascar o amendoim e tirar a pele. Dispor os grãos em uma forma grande (retangular) de alumínio e torrá-los por cerca de 30 minutos no fogo alto. Depois leve ao liquidificador, sem líquidos e triture-os. Em uma tigela misture todos os ingredientes até a massa ficar homogênea e atingir o ponto de enrolar. Unte as mãos com manteiga e modele os docinhos para ficarem no formato de pequenos cajús. Passe os docinhos no açúcar (cristal ou demerara) e coloque um grão para se assemelhar à castanha do caju. Coloque em forminhas.","observacoes":" ","tempo_preparo":"25 min","porcoes":"40 ","img":"3.jpg","id":3}
+{
+    "titulo": "Cajuzinho",
+    "ingredientes": [
+        "150 g de amendoim (sem sal e sem pele) torrado e moído",
+        "1/2 xícara de açúcar ",
+        "1/2 lata de leite condensado",
+        "2 colheres de chocolate em pó (achocolatado comum se preferir mais doce) ou (chocolate em pó solúvel)",
+        "1 colher de manteiga para untar as mãos",
+        "1 xícara de açúcar cristal ou demerara (prefiro demerara) para passar os doces",
+        "50 g de grãos de amendoim para enfeitar"
+    ],
+    "modo_preparo": "Existem no mercado algumas marcas de amendoim torrado e moído. Se você as preferir, como eu, preste atenção para não comprar amendoim salgado. Caso prefira torrar em casa, a receita vai demorar um pouco mais (1 hora e meia). Você precisará descascar o amendoim e tirar a pele. Dispor os grãos em uma forma grande (retangular) de alumínio e torrá-los por cerca de 30 minutos no fogo alto. Depois leve ao liquidificador, sem líquidos e triture-os. Em uma tigela misture todos os ingredientes até a massa ficar homogênea e atingir o ponto de enrolar. Unte as mãos com manteiga e modele os docinhos para ficarem no formato de pequenos cajús. Passe os docinhos no açúcar (cristal ou demerara) e coloque um grão para se assemelhar à castanha do caju. Coloque em forminhas.",
+    "observacoes": " ",
+    "tempo_preparo": "25 min",
+    "porcoes": "40 ",
+    "img": "3.jpg",
+    "id": 3
+}
