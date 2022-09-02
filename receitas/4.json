@@ -1,7 +1,7 @@
 {
     "titulo": "Carne de panela",
     "ingredientes": [
-        "00 g de coxão mole cortado em bifes",
+        "500 g de coxão mole cortado em bifes",
         "1 cebola ralada",
         "1 dente de alho amassado",
         "1/2 xícara de óleo",
@@ -15,8 +15,8 @@
         "orégano a gosto"
     ],
     "modo_preparo": "Em uma panela de pressão, coloque o óleo junte a cebola, alho e refogue bem. Acrescente a carne frite por 5 minutos mexendo bem, tomate, pimentão, massa de tomate, cenoura e a seguir acrescente a água orégano. Deixe cozinhar por 30 minutos contando o início da fervura, assim que a carne estiver cozida retire do fogo, misture a salsinha e sirva em seguida com arroz branco",
-    "observacoes": " ",
-    "tempo_preparo": "50 min",
+    "observacoes": "",
+    "tempo_preparo": "50",
     "porcoes": "5",
     "img": "4.jpg",
     "id": 4

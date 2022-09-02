@@ -2,12 +2,12 @@
     "titulo": "Café Cremoso",
     "ingredientes": [
         "50 g de café solúvel",
-        "100 g de açúcar (pode utilizar o pacotinho do café como medidor)",
+        "100 g de açúcar",
         "200 ml de água quente"
     ],
     "modo_preparo": "Colocar na batedeira todos os ingredientes e bater por 5 a 10 minutos até formar um creme pastoso.\nPara beber é só utilizar uma ou duas colheres do creme em uma xícara e acrescentar leite quente. Fica uma delícia e muito cremoso.\nOutra opção é acrescentar uma pitada de canela e uma colher de chocolate em pó. Fica muito parecido com um cappuccino.\nSe preferir, pode beber gelado!",
     "observacoes": "Guarde o creme que sobrou no congelador, ele não vai endurecer. Quando quiser beber é só retirar as colheres desejadas.",
-    "tempo_preparo": "20 min",
+    "tempo_preparo": "20",
     "porcoes": "30",
     "img": "13.jpg",
     "id": 13
