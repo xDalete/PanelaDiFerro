@@ -16,9 +16,9 @@ function Home() {
             <div className="row row-cols-mg-4">
                 {
                     receitas.map(receita => {
-                        return <div className="col">
+                        return <div className="col" key={`div-${receita.id}`}>
                             {receita.id ?
-                                <Receita key={receita.id}
+                                <Receita 
                                     img={receita.img}
                                     titulo={receita.titulo}
                                     descricao={receita.modo_preparo}

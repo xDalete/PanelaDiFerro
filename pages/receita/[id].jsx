@@ -4,7 +4,7 @@ import Head from "next/head";
 import Script from 'next/script';
 
 function Home(props) {
-  if (props.id == null) return <Script dangerouslySetInnerHTML={{
+  if (props.id == null) return <Script id="redirect" dangerouslySetInnerHTML={{
     __html: "window.location.replace(`https://paneladiferro.xdalete.repl.co/404`)",
   }} />
   else return <>
@@ -14,8 +14,10 @@ function Home(props) {
     <section className={`container`}>
       <div className={"d-flex flex-column align-items-center"}>
         <h1 className={`${styles.title}`}>{props.titulo}</h1>
-        <img src={`/receitas-thumb/${props.img}`} alt="thumb receita" className={`border 
-border-4 border-light ${styles.image}`} />
+        <picture>
+          <source srcSet={`/receitas-thumb/${props.img}`} />
+          <img src={`/receitas-thumb/${props.img}`} alt="thumb receita" className={`border border-4 border-light ${styles.image}`} />
+        </picture>
       </div>
       <div className={`card shadow bg-body ${styles.spacing}`}>
         <div className={"card-body"}>
