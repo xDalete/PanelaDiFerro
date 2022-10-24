@@ -26,10 +26,10 @@ const NavMenu = () => {
       <NavbarBrand>
                 <Link href={"/"}>
 
-        <img width="45px" src="https://paneladiferro.xdalete.repl.co/images/Logo_site.png" alt="Logo" />
+        <img width="45px" src="https://paneladiferro.xdalete.repl.co/images/Logo_site.png" alt="Logo" style={{ cursor:"pointer" }} />
                   </Link>
         <Link href={"/"}>
-          <span style={{ fontWeight: "bold", padding: "10px", color:"black" }}>PanelaD<span style={{ color: "green" }}>iF</span>erro</span>
+          <span style={{ fontWeight: "bold", padding: "10px", color:"black", cursor:"default" }}>PanelaD<span style={{ color: "green" }}>iF</span>erro</span>
         </Link>
       </NavbarBrand>
       {/*<NavbarToggler onClick={toggle} />
