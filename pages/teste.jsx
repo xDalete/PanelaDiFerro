@@ -11,7 +11,7 @@ function MyApp() {
   const [progress, setProgress] = useState(0);
   const [id, setId] = useState(0);
   const [erro, setErro] = useState("");
-  const [titulo, setTitulo] = useState();
+  const [titulo, setTitulo] = useState("");
   const [ingredientes, setIngredientes] = useState("");
   const [modo_preparo, setModo_preparo] = useState("");
   const [observacoes, setObservacoes] = useState("");
@@ -28,12 +28,11 @@ function MyApp() {
       const formData = new FormData();
       formData.append("thumb", file)
       formData.append("titulo", titulo)
-      formData.append("ingredientes", ingredientes)
+      formData.append("ingredientes", ingredientes.trim().split("\n"))
       formData.append("modo_preparo", modo_preparo)
       formData.append("observacoes", observacoes)
       formData.append("tempo_preparo", tempo_preparo)
       formData.append("porcoes", porcoes)
-      formData.append("img", img)
 
       axios.post('/api/teste', formData, config).then(response => {
         console.log(response.data)

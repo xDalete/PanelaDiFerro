@@ -19,7 +19,7 @@ function Home() {
                         return <div className="col" key={`div-${receita.id}`}>
                             {receita.id ?
                                 <Receita 
-                                    img={receita.img}
+                                    img={receita.image}
                                     titulo={receita.titulo}
                                     descricao={receita.modo_preparo}
                                     id={receita.id}
