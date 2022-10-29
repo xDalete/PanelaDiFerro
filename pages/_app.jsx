@@ -6,11 +6,9 @@ import Head from "next/head";
 function MyApp({ Component, pageProps }) {
   return <div>
     <Head>
-        <title>PanelaDiFerro</title>
-        <link rel="icon" href="/images/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+      <title>PanelaDiFerro</title>
+      <link rel="icon" href="/images/favicon.ico" />
+      <script id="_wauv2w">var _wau = _wau || []; _wau.push(["small", "vs832liyqh", "v2w"]);</script><script async src="//waust.at/s.js"></script>
     </Head>
     <Layout>
         <Component {...pageProps} />

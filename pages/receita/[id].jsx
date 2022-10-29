@@ -4,7 +4,7 @@ import Head from "next/head";
 import Script from 'next/script';
 
 function Home(props) {
-  if (props.id == null) return <Script id="redirect" dangerouslySetInnerHTML={{
+  if (!props.id) return <Script id="redirect" dangerouslySetInnerHTML={{
     __html: "window.location.replace(`https://paneladiferro.xdalete.repl.co/404`)",
   }} />
   else return <>
@@ -15,8 +15,8 @@ function Home(props) {
       <div className={"d-flex flex-column align-items-center"}>
         <h1 className={`${styles.title}`}>{props.titulo}</h1>
         <picture>
-          <source srcSet={`/receitas-thumb/${props.img}`} />
-          <img src={`/receitas-thumb/${props.img}`} alt="thumb receita" className={`border border-4 border-light ${styles.image}`} />
+          <source srcSet={`${props.image}`} />
+          <img src={`${props.image}`} alt="thumb receita" className={`border border-4 border-light ${styles.image}`} />
         </picture>
       </div>
       <div className={`card shadow bg-body ${styles.spacing}`}>
@@ -62,11 +62,9 @@ function Home(props) {
 }
 
 export async function getServerSideProps({ res, query }) {
-  res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=600'
-  )
-  return { props: getReceita(query.id) }
+  res.setHeader('Cache-Control', 's-maxage=60', 'stale-while-revalidate')
+  let receita = await getReceita(query.id)
+  return { props: receita ? receita:{}}
 }
 
 export default Home
