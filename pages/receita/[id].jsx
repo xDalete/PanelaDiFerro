@@ -47,7 +47,7 @@ function Home(props) {
             <h2 className={`${styles.title2}`}>Modo de Preparo</h2>
             <p className={`mx-4 ${styles.justify}`}>{props.modo_preparo}</p>
           </div>
-          {props.observacoes.trim() != "" ?
+          {props.observacoes ?
             <div className={"row"}>
               <div className={"col-md-12"}>
                 <h2 className={`${styles.title2}`}>Observações</h2>
