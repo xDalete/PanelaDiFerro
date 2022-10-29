@@ -15,8 +15,8 @@ function Home(props) {
       <div className={"d-flex flex-column align-items-center"}>
         <h1 className={`${styles.title}`}>{props.titulo}</h1>
         <picture>
-          <source srcSet={`/receitas-thumb/${props.image}`} />
-          <img src={`/receitas-thumb/${props.image}`} alt="thumb receita" className={`border border-4 border-light ${styles.image}`} />
+          <source srcSet={`${props.image}`} />
+          <img src={`${props.image}`} alt="thumb receita" className={`border border-4 border-light ${styles.image}`} />
         </picture>
       </div>
       <div className={`card shadow bg-body ${styles.spacing}`}>

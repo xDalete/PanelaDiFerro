@@ -28,7 +28,7 @@ export default async (req, res) => {
         tempo_preparo: fields.tempo_preparo,
         porcoes: fields.porcoes,
         observacoes: fields.observacoes,
-        img: `${files.thumb.filepath.split("/")[2]}-${new Date().getTime()}.${files.thumb.mimetype.split("/")[1]}`,
+        image: `${files.thumb.filepath.split("/")[2]}-${new Date().getTime()}`,
       }, files.thumb.filepath)
       return res.status(201).json(receita);
     });
