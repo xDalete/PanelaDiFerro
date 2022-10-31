@@ -8,7 +8,6 @@ function MyApp({ Component, pageProps }) {
     <Head>
       <title>PanelaDiFerro</title>
       <link rel="icon" href="/images/favicon.ico" />
-      <script id="_wauv2w">var _wau = _wau || []; _wau.push(["small", "vs832liyqh", "v2w"]);</script><script async src="//waust.at/s.js"></script>
     </Head>
     <Layout>
       <Component {...pageProps} />
