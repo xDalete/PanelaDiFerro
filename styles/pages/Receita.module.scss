@@ -1,3 +1,5 @@
+$width-sm-size: 85vw;
+
 .title {
     margin-bottom: 1rem;
     color: #FF9501;
@@ -27,4 +29,10 @@
 
 .justify {
     text-align: justify;
+}
+
+@media (max-width: 800px) {
+    .image {
+        width: $width-sm-size;
+    }
 }

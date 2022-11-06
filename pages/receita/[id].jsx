@@ -64,7 +64,7 @@ function Home(props) {
 export async function getServerSideProps({ res, query }) {
   res.setHeader('Cache-Control', 's-maxage=60', 'stale-while-revalidate')
   let receita = await getReceita(query.id)
-  return { props: receita ? receita:{}}
+  return { props: receita ? receita : {}}
 }
 
 export default Home

@@ -1,3 +1,5 @@
+@import '../variables.scss';
+
 .link {
   text-decoration: none;
 }
@@ -12,6 +14,9 @@
     &:hover {
         .capaFundo {
             height: 140px;
+        }
+        .LerMais {
+            display: block;
         }
         margin-bottom: 10px;
     }
@@ -36,12 +41,21 @@
 
 .titulo {
     font-size: 1rem;
-    margin: 5px;
-    margin-top: 10px;
+    margin: 10px 5px;
+}
+
+.cardInfo {
+    height: 30px;
+    border-right: 1px solid rgba(0, 0, 0, 0.7);
+}
+
+.cardInfo > i,
+.cardInfo + div > i {
+    color: $components-color;
 }
 
 .descricao {
-    height: 90px;
+    height: 60px;
     font-size: 12px;
     color: rgb(128, 128, 128);
     padding-bottom: 5px;
@@ -49,6 +63,7 @@
 }
 
 .LerMais {
+    display: none;
     transform: translateY(-28px);
     position: absolute;
     background-image: linear-gradient(rgba(230, 230, 230, 0.5), rgba(230, 230, 230), rgba(230, 230, 230));
