@@ -52,11 +52,12 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(255, 164, 60);
+  background-color: rgb(247, 209, 74);
+  //rgb(255, 164, 60)
   border-radius: 10px;
   border: 2px solid $components-color;
 
   &:hover {
-    background: rgb(255, 183, 100);
+    background: rgb(239, 216, 132);
   }
 }

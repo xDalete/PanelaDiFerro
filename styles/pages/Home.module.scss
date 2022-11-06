@@ -1,4 +1,6 @@
+@import '../variables.scss';
+
 .title {
     margin: 2rem 0;
-    color: #FF9501;
+    color: $components-color;
 }

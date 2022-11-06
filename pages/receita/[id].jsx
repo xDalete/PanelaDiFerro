@@ -35,7 +35,7 @@ function Home(props) {
             <div className={`col-sm-6 col-md-6 col-lg-6 ${styles.info}`}>
               <div className={"d-flex flex-row"}>
                 <i className={`large material-icons me-2 ${styles.icon}`}>access_alarm</i>
-                <p>Tempo de Preparo: {props.tempo_preparo}</p>
+                <p>Tempo de Preparo: {props.tempo_preparo} min</p>
               </div>
               <div className={"d-flex flex-row"}>
                 <i className={`large material-icons me-2 ${styles.icon}`}>free_breakfast</i>
@@ -64,7 +64,7 @@ function Home(props) {
 export async function getServerSideProps({ res, query }) {
   res.setHeader('Cache-Control', 's-maxage=60', 'stale-while-revalidate')
   let receita = await getReceita(query.id)
-  return { props: receita ? receita:{}}
+  return { props: receita ? receita : {}}
 }
 
 export default Home

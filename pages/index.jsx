@@ -21,9 +21,11 @@ function Home() {
                                 <Receita 
                                     image={receita.image}
                                     titulo={receita.titulo}
-                                    descricao={receita.modo_preparo}
+                                    tempo_preparo={receita.tempo_preparo}
+                                    porcoes={receita.porcoes}
                                     id={receita.id}
-                                /> : <></>
+                                >
+                                </Receita> : <></>
                             }
                         </div>
                     })
