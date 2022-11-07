@@ -35,7 +35,7 @@ function Home(props) {
             <div className={`col-sm-6 col-md-6 col-lg-6 ${styles.info}`}>
               <div className={"d-flex flex-row"}>
                 <i className={`large material-icons me-2 ${styles.icon}`}>access_alarm</i>
-                <p>Tempo de Preparo: {props.tempo_preparo} min</p>
+                <p>Tempo de Preparo: {showPrepareTimeProps(props.tempo_preparo)}</p>
               </div>
               <div className={"d-flex flex-row"}>
                 <i className={`large material-icons me-2 ${styles.icon}`}>free_breakfast</i>
@@ -47,7 +47,8 @@ function Home(props) {
             <h2 className={`${styles.title2}`}>Modo de Preparo</h2>
             <p className={`mx-4 ${styles.justify}`}>{props.modo_preparo}</p>
           </div>
-          {props.observacoes ?
+          {
+            props.observacoes ?
             <div className={"row"}>
               <div className={"col-md-12"}>
                 <h2 className={`${styles.title2}`}>Observações</h2>
@@ -59,6 +60,32 @@ function Home(props) {
       </div>
     </section>
   </>
+}
+
+function formatPreparationTime(time) {
+    if (time >= 60 && time % 60 != 0) {       
+        return {
+            hours: Number(Math.floor(time / 60)),
+            minutes: time - (Number(Math.floor(time / 60)) * 60)
+        }
+    } else if(time >= 60 && time % 60 == 0) {
+        return time / 60;
+    } else {
+        return
+    }
+}
+
+export function showPrepareTimeProps(timeProps) {
+    const formattedTime = formatPreparationTime(timeProps);
+
+    if (typeof formattedTime === "object") {
+        return `${formattedTime.hours}h 
+            e ${formattedTime.minutes} min`;
+    } else if(typeof formattedTime === "number") {
+        return formattedTime === 1 ? `${formattedTime} hora` : `${formattedTime} horas`;
+    } else {
+        return `${timeProps} min`;
+    }
 }
 
 export async function getServerSideProps({ res, query }) {
