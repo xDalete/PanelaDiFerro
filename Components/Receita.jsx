@@ -4,9 +4,11 @@ import { showPrepareTimeProps } from '../pages/receita/[id].jsx';
 
 function Receita({ image, titulo, tempo_preparo, porcoes, id }) {
     let paragraphContent = useRef("");
-    useEffect(() => {
-        paragraphContent.innerHtml = "Ver Mais";
-    });
+    const onCardHover = () => {
+        useEffect(() => {
+            paragraphContent.innerHtml = "Ver Mais";
+        });
+    }
 
     return (
         <div onMouseOver={onCardHover()} className={`rounded col ${styles.receita}`}>
