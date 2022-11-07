@@ -12,15 +12,7 @@ export default async (req, res) => {
           Object.keys(fields).some(field => !['titulo','ingredientes','modo_preparo','observacoes','tempo_preparo','porcoes'].includes(field)) ||
           !files.thumb
       ) return res.status(400).json({ erro:"O request não segue os parametros esperados pelo servidor."});
-      
-      
-      // if (fields?.titulo.trim() == "") return res.status(400).json({ erro: `Titulo necessário` });
-      // if (!Array.isArray(fields?.ingredientes) || fields?.ingredientes.length < 2 ) return res.status(400).json({ erro: `É necessario ter ao menos 2 ingredientes` });
-      // if (fields?.modo_preparo.trim() == "") return res.status(400).json({ erro: `Modo de preparo necessário` });
-      // if (fields?.tempo_preparo.trim() == "") return res.status(400).json({ erro: `Tempo de preparo necessário` });
-      // if (fields?.porcoes.trim() == "") return res.status(400).json({ erro: `Quantidade de porções necessária` });
-      // if (!files?.thumb) return res.status(400).json({ erro: `Imagem necessária` })
-      // if (files?.thumb.mimetype != "image/jpeg" && files.thumb.mimetype != "image/png") return res.status(400).json({ erro: `Formato de imagem não suportado` })
+
       let receita = await addReceita({
         titulo: fields.titulo,
         ingredientes: fields.ingredientes,
@@ -28,7 +20,7 @@ export default async (req, res) => {
         tempo_preparo: fields.tempo_preparo,
         porcoes: fields.porcoes,
         observacoes: fields.observacoes,
-        image: `${files.thumb.filepath.split("/")[2]}-${new Date().getTime()}`,
+        image: `${files.thumb.filepath.split("/")[2]}-${Date.now()}`,
       }, files.thumb.filepath)
       return res.status(201).json(receita);
     });
