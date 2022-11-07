@@ -5,7 +5,7 @@ import { showPrepareTimeProps } from '../pages/receita/[id].jsx';
 function Receita({ image, titulo, tempo_preparo, porcoes, id }) {
     let paragraphContent = useRef("");
     useEffect(() => {
-        paragraphContent.innerHtml = "Ver Mais";
+        paragraphContent.innerHtml = `${tempo_preparo} min`;
     });
 
     return (
