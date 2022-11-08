@@ -17,7 +17,7 @@ function Home() {
         <Input placeholder="Buscar..." className='col-12 mx-1' onChange={event => setSearch(event.target.value)} />
                 {
                     receitas.map(receita => {
-                        return <div className="col-12" key={`div-${receita.id}`}>
+                        return <div className="col-6" key={`div-${receita.id}`}>
                             {receita.id ?
                                 <Receita 
                                     image={receita.image}
