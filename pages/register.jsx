@@ -42,7 +42,11 @@ export default function MyApp() {
                                         <Label className={`me-2 ${styles.titlesColor}`}>Ingredientes</Label>
                                         <i className={`medium material-icons ${styles.themeColor}`}>format_list_bulleted</i>
                                     </div>
+<<<<<<< HEAD
                                     <Input type="textarea" rows="5" placeholder={`Insira os ingredientes separados por linha. Ex.:\n2 colheres de sal\n4 colheres de sopa de pó royal\n1 lata de milho`}></Input>
+=======
+                                    <Input type="textarea" rows="5" placeholder={`Insira os ingredientes separados por linhas. Ex.:\n2 colheres de sal\n4 colheres de sopa de pó royal\n1 lata de milho`}></Input>
+>>>>>>> f620831876b7694766c598d01f1d3be118d634fb
                                 </FormGroup>
                             </div>
                         </div>
@@ -75,7 +79,7 @@ export default function MyApp() {
                                 <Input type="file"></Input>
                             </div>
                             <div className='col-md-2' style={{ marginTop: "2em" }}>
-                                <button className='btn btn-success w-100'>Save</button>
+                                <button className='btn btn-success w-100'>Salvar</button>
                             </div>
                             <div className='col-md-4' style={{ marginTop: "2.5em" }}>
                                 <div className="border border-dark rounded" style={{ width: "300px", height: "25px" }}>

@@ -2,24 +2,12 @@
     background-color: rgb(255, 136, 0);
 }
 
-.btnEntrar {
-    color: yellow;
-
-    &:hover {
-        color: #ececa1;
-    }
-}
-
-.nav_extra {
-    display: none;
-}
-
-@media (max-width: 767px) {
-    .nav_extra_dropdown {
-        display: none;
-    }
-
-    .nav_extra {
-        display: block;
-    }
+.navItem {  
+  color:white;
+  &:focus {
+    color: white;
+  }
+  &:hover {
+    color: lightgrey;
+  }
 }

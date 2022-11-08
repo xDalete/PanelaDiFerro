@@ -1,9 +1,7 @@
 import styles from '../styles/components/NavMenu.module.scss';
 import { useRouter } from "next/router";
 import {
-  Collapse,
-  Nav,
-  Navbar,
+  Nav,  Navbar,
   NavbarBrand,
   NavbarToggler,
   NavItem,
@@ -32,16 +30,18 @@ const NavMenu = () => {
           <span style={{ fontWeight: "bold", padding: "10px", color:"black", cursor:"default" }}>PanelaD<span style={{ color: "green" }}>iF</span>erro</span>
         </Link>
       </NavbarBrand>
-      {/*<NavbarToggler onClick={toggle} />
-      <Collapse navbar isOpen={open}>
-        <Nav className={"me-auto"} navbar>
+      <Nav>
           <NavItem onClick={toggle}>
-            <Link href={"/"} >
-              <NavLink href={"/"} active={router.pathname === "/"}>Inicio</NavLink>
+            <Link href={"/search"} >
+      <NavLink className={styles.navItem} style={{float:"right"}} href={"/search"} active={router.pathname === "/search"}>Buscar</NavLink> 
+            </Link>
+          </NavItem>
+      <NavItem onClick={toggle}>
+            <Link href={"/register"} >
+              <NavLink className={styles.navItem}href={"/register"} active={router.pathname === "/register"}>Cadastrar</NavLink> 
             </Link>
           </NavItem>
         </Nav>
-      </Collapse>*/}
     </Navbar>
   )
 }
