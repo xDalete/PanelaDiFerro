@@ -58,7 +58,7 @@ function MyApp() {
     }
   }
   return <section className="container">
-    <Input disabled={disabled} className="mb-2" placeholder="Titulo" onChange={event => setTitulo(event.target.value)}></Input>
+    <Input disabled={disabled} className="mb-2" placeholder="Titulo" onChange={event => (event.terget.value.lenght < 4)? null : setTitulo(event.target.value)}></Input>
     <Input disabled={disabled} className="mb-2" type="textarea" rows="5" placeholder="Ingredientes (Separados por linha)" onChange={event => setIngredientes(event.target.value)}></Input>
     <Input disabled={disabled} className="mb-2" type="textarea" rows="5" placeholder="Modo de preparo" onChange={event => setModo_preparo(event.target.value)}></Input>
     <Input disabled={disabled} className="mb-2" type="textarea" rows="5" placeholder="Observações" onChange={event => setObservacoes(event.target.value)}></Input>
