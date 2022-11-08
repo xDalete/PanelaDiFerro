@@ -4,19 +4,9 @@ import styles from '../styles/pages/Register.module.scss';
 const axios = require('axios').default;
 
 export default function MyApp() {
-    // let [disabled, setDisabled] = useState(false)
-    // let title = useRef("");
-    // let preparingTime = useRef(0);
-    // let portions = useRef(0);
-    // let ingredients = useRef("");
-    // let preparationMode = useRef("");
-    // let observations = useRef("");
-    // let images = useRef(null);
     var [disabled, setDisabled] = useState(false);
-    var [tem_imagem, setTem_imagem] = useState(false);
-    var [img, setImg] = useState("");
-    var [file, setFile] = useState({ name: "" });
-    const [progress, setProgress] = useState(0);
+    var [img, setImg] = useState("");    
+    const [progress, setProgress] = useState(0);    
     const [id, setId] = useState(0);
     const [erro, setErro] = useState("");
     const [titulo, setTitulo] = useState("");
@@ -25,23 +15,18 @@ export default function MyApp() {
     const [observacoes, setObservacoes] = useState("");
     const [tempo_preparo, setTempo_preparo] = useState("");
     const [porcoes, setPorcoes] = useState("");
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        if (titulo.length < 4) return
-        if (ingredientes.split("\n").length <= 2) {
-            return
-        }
-        if (modo_preparo.length < 50) return
-        if (img === null) {
-            return
-        } else {
+  
+async function clico() {
+  if((typeof(titulo) != 'string' || titulo.length < 4 || titulo.length > 256) ||  ingredientes.split("\n").lenght <= 2 || (typeof(modo_preparo) != 'string' || modo_preparo.length < 50 || modo_preparo.length > 2048) || isNaN(tempo_preparo) || isNaN(porcoes) || observacoes.length > 2048 ||  img === null) return;
+    else {
             const config = {
                 headers: { 'content-type': 'multipart/form-data' },
                 onUploadProgress: (event) => {
                   setProgress(Math.round((event.loaded * 100) / event.total))
                 },
               };
-              const formData = new FormData();
+      
+              const formData = new FormData();              
               formData.append("thumb", img)
               formData.append("titulo", titulo)
               formData.append("ingredientes", ingredientes.trim().split("\n"))
@@ -49,7 +34,7 @@ export default function MyApp() {
               formData.append("observacoes", observacoes)
               formData.append("tempo_preparo", tempo_preparo)
               formData.append("porcoes", porcoes)
-        
+      
               axios.post('/api/register', formData, config).then(response => {
                 setDisabled(true)
                 setId(response.data.id)
@@ -68,7 +53,6 @@ export default function MyApp() {
                     <CardTitle style={{ color: "rgb(255, 136, 0)", marginBottom: "0" }}>Cadastrar Receita</CardTitle>
                 </CardHeader>
                 <CardBody>
-                    <Form>
                         <div className='row'>
                             <div className='col-md-5'>
                                 <FormGroup>
@@ -131,18 +115,17 @@ export default function MyApp() {
                                     <Label className={`me-2 ${styles.titlesColor}`}>Imagem</Label>
                                     <i className={`medium material-icons ${styles.themeColor}`}>image</i>
                                 </div>
-                                <Input  disabled={disabled} type="file" name="imagem" onChange={event => setImg(event.target.value)} required></Input>
+                                <Input multiple={false} disabled={disabled} type="file" name="imagem" accept="image/png, image/jpeg" onChange={event => setImg(event.target.files[0])} required></Input>
                             </div>
                             <div className='col-md-2' style={{ marginTop: "2em" }}>
-                                <button type="submit" className='btn btn-success w-100' onSubmit={handleSubmit()}>Salvar</button>
+                                <button disabled={disabled} className='btn btn-success w-100' onClick={clico}>Salvar</button>
                             </div>
                             <div className='col-md-4' style={{ marginTop: "2.5em" }}>
                                 <div className="border border-dark rounded" style={{ width: "300px", height: "25px" }}>
-                                    <div style={{ transitionDuration: ".1s", height: "100%", width: `#%`, backgroundColor: "none" }}></div>
+                                    <div style={{ transitionDuration: ".1s", height: "100%", width: `${progress}%`, backgroundColor: "green" }}></div>
                                 </div>
                             </div>
                         </div>
-                    </Form>
                 </CardBody>
             </Card>
         </section>
