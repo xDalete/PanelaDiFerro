@@ -42,7 +42,7 @@ export default function MyApp() {
                                         <Label className={`me-2 ${styles.titlesColor}`}>Ingredientes</Label>
                                         <i className={`medium material-icons ${styles.themeColor}`}>format_list_bulleted</i>
                                     </div>
-                                    <Input type="textarea" rows="5" placeholder={`Insira os ingredientes separados por vírgula. Ex.:\n2 colheres de sal\n4 colheres de sopa de pó royal\n1 lata de milho`}></Input>
+                                    <Input type="textarea" rows="5" placeholder={`Insira os ingredientes separados por linha. Ex.:\n2 colheres de sal\n4 colheres de sopa de pó royal\n1 lata de milho`}></Input>
                                 </FormGroup>
                             </div>
                         </div>
