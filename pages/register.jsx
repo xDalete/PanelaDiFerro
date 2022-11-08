@@ -1,22 +1,38 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Card, CardHeader, CardTitle, CardBody, Form, FormGroup, Input, Label } from 'reactstrap';
 import styles from '../styles/pages/Register.module.scss';
 const axios = require('axios').default;
 
 export default function MyApp() {
-    let [disabled, setDisabled] = useState(false)
-    let title = useRef("");
-    let preparingTime = useRef(0);
-    let portions = useRef(0);
-    let ingredients = useRef("");
-    let preparationMode = useref("");
-    let observations = useRef("");
-    let images = useRef(null);
+    // let [disabled, setDisabled] = useState(false)
+    // let title = useRef("");
+    // let preparingTime = useRef(0);
+    // let portions = useRef(0);
+    // let ingredients = useRef("");
+    // let preparationMode = useRef("");
+    // let observations = useRef("");
+    // let images = useRef(null);
+    var [disabled, setDisabled] = useState(false);
+    var [tem_imagem, setTem_imagem] = useState(false);
+    var [img, setImg] = useState("");
+    var [file, setFile] = useState({ name: "" });
+    const [progress, setProgress] = useState(0);
+    const [id, setId] = useState(0);
+    const [erro, setErro] = useState("");
+    const [titulo, setTitulo] = useState("");
+    const [ingredientes, setIngredientes] = useState("");
+    const [modo_preparo, setModo_preparo] = useState("");
+    const [observacoes, setObservacoes] = useState("");
+    const [tempo_preparo, setTempo_preparo] = useState("");
+    const [porcoes, setPorcoes] = useState("");
     const handleSubmit = (event) => {
-        if (title.current.length < 4) return
-        if (ingredients.current.split("\n").length <= 2) return
-        if (preparationMode.current.length < 50) return
-        if (images.current === null) {
+        event.preventDefault();
+        if (titulo.length < 4) return
+        if (ingredientes.split("\n").length <= 2) {
+            return
+        }
+        if (modo_preparo.length < 50) return
+        if (img === null) {
             return
         } else {
             const config = {
@@ -26,13 +42,13 @@ export default function MyApp() {
                 },
               };
               const formData = new FormData();
-              formData.append("thumb", images)
-              formData.append("titulo", title)
-              formData.append("ingredientes", ingredients.trim().split("\n"))
-              formData.append("modo_preparo", preparationMode)
-              formData.append("observacoes", observations)
-              formData.append("tempo_preparo", preparingTime)
-              formData.append("porcoes", portions)
+              formData.append("thumb", img)
+              formData.append("titulo", titulo)
+              formData.append("ingredientes", ingredientes.trim().split("\n"))
+              formData.append("modo_preparo", modo_preparo)
+              formData.append("observacoes", observacoes)
+              formData.append("tempo_preparo", tempo_preparo)
+              formData.append("porcoes", porcoes)
         
               axios.post('/api/register', formData, config).then(response => {
                 setDisabled(true)
@@ -60,7 +76,7 @@ export default function MyApp() {
                                         <Label className={`me-2 ${styles.titlesColor}`}>Título</Label>
                                         <i className={`medium material-icons ${styles.themeColor}`}>title</i>
                                     </div>
-                                    <Input disabled={disabled} type="text" name="titulo" placeholder="Ex.: Café com Creme de Avelã" ref={title} required></Input>
+                                    <Input disabled={disabled} type="text" name="titulo" placeholder="Ex.: Café com Creme de Avelã" onChange={event => setTitulo(event.target.value)} required></Input>
                                 </FormGroup>
                                 <div className='row'>
                                     <FormGroup style={{ width: "50%" }}>
@@ -68,14 +84,14 @@ export default function MyApp() {
                                             <Label className={`me-2 ${styles.titlesColor}`}>Tempo de Preparo</Label>
                                             <i className={`medium material-icons ${styles.themeColor}`}>access_alarm</i>
                                         </div>
-                                        <Input  disabled={disabled} type="number" name="tempo_preparo" placeholder="Tempo em minutos" ref={preparingTime} required></Input>
+                                        <Input  disabled={disabled} type="number" name="tempo_preparo" placeholder="Tempo em minutos" onChange={event => setTempo_preparo(event.target.value)} required></Input>
                                     </FormGroup>
                                     <FormGroup style={{ width: "50%" }}>
                                         <div className='my-0 d-flex justify-content-start'>
                                             <Label className={`me-2 ${styles.titlesColor}`}>Porções</Label>
                                             <i className={`medium material-icons ${styles.themeColor}`}>free_breakfast</i>
                                         </div>
-                                        <Input  disabled={disabled} type="number" name="porcoes" placeholder="Número de porções" ref={portions} required></Input>
+                                        <Input  disabled={disabled} type="number" name="porcoes" placeholder="Número de porções" onChange={event => setPorcoes(event.target.value)} required></Input>
                                     </FormGroup>
                                 </div>
                             </div>
@@ -85,7 +101,7 @@ export default function MyApp() {
                                         <Label className={`me-2 ${styles.titlesColor}`}>Ingredientes</Label>
                                         <i className={`medium material-icons ${styles.themeColor}`}>format_list_bulleted</i>
                                     </div>
-                                    <Input  disabled={disabled} type="textarea" name="ingredientes" rows="5" placeholder={`Insira os ingredientes separados por linhas. Ex.:\n2 colheres de sal\n4 colheres de sopa de pó royal\n1 lata de milho`} ref={ingredients} required></Input>
+                                    <Input disabled={disabled} type="textarea" name="ingredientes" rows="5" placeholder={`Insira os ingredientes separados por linhas. Ex.:\n2 colheres de sal\n4 colheres de sopa de pó royal\n1 lata de milho`} onChange={event => setIngredientes(event.target.value)} required></Input>
                                 </FormGroup>
                             </div>
                         </div>
@@ -96,7 +112,7 @@ export default function MyApp() {
                                         <Label className={`me-2 ${styles.titlesColor}`}>Modo de Preparo</Label>
                                         <i className={`medium material-icons ${styles.themeColor}`}>cake</i>
                                     </div>
-                                    <Input  disabled={disabled} type="textarea" name="modo_preparo" rows="5" placeholder="Descrição da receita" ref={preparationMode} required></Input>
+                                    <Input  disabled={disabled} type="textarea" name="modo_preparo" rows="5" placeholder="Descrição da receita" onChange={event => setModo_preparo(event.target.value)} required></Input>
                                 </FormGroup>
                             </div>
                             <div className='col-md-6'>
@@ -105,7 +121,7 @@ export default function MyApp() {
                                         <Label className={`me-2 ${styles.titlesColor}`}>Observações</Label>
                                         <i className={`medium material-icons ${styles.themeColor}`}>description</i>
                                     </div>
-                                    <Input  disabled={disabled} type="textarea" name="observacoes" rows="5" placeholder="Informações adicionais *(opcional)" ref={observations}></Input>
+                                    <Input  disabled={disabled} type="textarea" name="observacoes" rows="5" placeholder="Informações adicionais *(opcional)" onChange={event => setObservacoes(event.target.value)}></Input>
                                 </FormGroup>
                             </div>
                         </div>
@@ -115,10 +131,10 @@ export default function MyApp() {
                                     <Label className={`me-2 ${styles.titlesColor}`}>Imagem</Label>
                                     <i className={`medium material-icons ${styles.themeColor}`}>image</i>
                                 </div>
-                                <Input  disabled={disabled} type="file" name="imagem" ref={images} required></Input>
+                                <Input  disabled={disabled} type="file" name="imagem" onChange={event => setImg(event.target.value)} required></Input>
                             </div>
                             <div className='col-md-2' style={{ marginTop: "2em" }}>
-                                <button type="submit" className='btn btn-success w-100' onClick={handleSubmit()}>Salvar</button>
+                                <button type="submit" className='btn btn-success w-100' onSubmit={handleSubmit()}>Salvar</button>
                             </div>
                             <div className='col-md-4' style={{ marginTop: "2.5em" }}>
                                 <div className="border border-dark rounded" style={{ width: "300px", height: "25px" }}>

@@ -15,7 +15,7 @@ export default async (req, res) => {
           !files.thumb
       ) return res.status(400).json({ erro:"O request não segue os parametros esperados pelo servidor."});
 
-      if(typeof(fields.titulo) != 'string' || fields.titulo.length < 4) || (!Array.isArray(fields.ingredientes) || fields.ingredientes.lenght <= 2) || (typeof(fields.modo_preparo) != 'string' || fields.modo_preparo.length < 50) || isNaN(fields.tempo_preparo) || isNaN(fields.porcoes)) return res.status(400).send("bad request");
+      if((typeof(fields.titulo) != 'string' || fields.titulo.length < 4) || (!Array.isArray(fields.ingredientes) || fields.ingredientes.lenght <= 2) || (typeof(fields.modo_preparo) != 'string' || fields.modo_preparo.length < 50) || isNaN(fields.tempo_preparo) || isNaN(fields.porcoes)) return res.status(400).send("bad request");
 
       let receita = await addReceita({
         titulo: fields.titulo,
