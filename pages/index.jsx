@@ -17,15 +17,15 @@ function Home() {
                 {
                     receitas.map(receita => {
                         return <div className="col" key={`div-${receita.id}`}>
-                            {receita.id ?
-                                <Receita 
-                                    image={receita.image}
-                                    titulo={receita.titulo}
-                                    tempo_preparo={receita.tempo_preparo}
-                                    porcoes={receita.porcoes}
-                                    id={receita.id}
-                                >
-                                </Receita> : <></>
+                            {
+                                receita.id ?
+                                    <Receita 
+                                        image={receita.image}
+                                        titulo={receita.titulo}
+                                        tempo_preparo={receita.tempo_preparo}
+                                        porcoes={receita.porcoes}
+                                        id={receita.id}
+                                    /> : <></>
                             }
                         </div>
                     })

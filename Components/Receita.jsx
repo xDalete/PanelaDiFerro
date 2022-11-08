@@ -6,7 +6,8 @@ function Receita({ image, titulo, tempo_preparo, porcoes, id }) {
     let paragraphContent = useRef("");
     const onCardHover = () => {
         useEffect(() => {
-            paragraphContent.innerHtml = "Ver Mais";
+            // paragraphContent.textContent = `${tempo_preparo} min`;
+            console.log("sim");
         });
     }
 
