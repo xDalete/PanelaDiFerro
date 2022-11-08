@@ -15,10 +15,10 @@ function Receita({ image, titulo, tempo_preparo, porcoes, id }) {
         <div onMouseOver={onCardHover()} className={`rounded col ${styles.receita}`}>
             <a href={`/receita/${id}`} target="_self" className={`${styles.link}`}>
                 <div className={`rounded-top ${styles.capaFundo}`}>
-                    <img src={`${image.replace("upload/","upload/w_350,ar_6:4/")}`} alt="Capa Fundo" />
+                    <img src={`${image.replace("upload/","upload/w_350/")}`} alt="Capa Fundo" />
                 </div>
                 <div className={styles.infos}>
-                    <h1 className={styles.titulo}>{titulo.toUpperCase()}</h1>
+                    <h1 className={styles.titulo}>{titulo}</h1>
                     <div className='px-2'>
                         <div className={`row ${styles.descricao}`}>
                             <div className={`col-md-6 d-flex flex-row justify-content-start ${styles.cardInfo}`}>
