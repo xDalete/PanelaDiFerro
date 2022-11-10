@@ -6,8 +6,7 @@ export default async (req, res) => {
   if (req.method === "POST") {
     const form = new formidable.IncomingForm();
     form.parse(req, async function(err, fields, files) {
-      
-;      if(
+      if (
           Object.keys(fields).length != 6 ||
           Object.keys(fields).some(field => !['titulo','ingredientes','modo_preparo','observacoes','tempo_preparo','porcoes'].includes(field)) ||
           !files.thumb

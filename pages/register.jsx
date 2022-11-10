@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react';
-import { Card, CardHeader, CardTitle, CardBody, Form, FormGroup, Input, Label } from 'reactstrap';
+import { useState } from 'react';
+import { Card, CardHeader, CardTitle, CardBody, FormGroup, Input, Label } from 'reactstrap';
 import styles from '../styles/pages/Register.module.scss';
 const axios = require('axios').default;
 
@@ -68,14 +68,14 @@ async function clico() {
                                             <Label className={`me-2 ${styles.titlesColor}`}>Tempo de Preparo</Label>
                                             <i className={`medium material-icons ${styles.themeColor}`}>access_alarm</i>
                                         </div>
-                                        <Input  disabled={disabled} type="number" name="tempo_preparo" placeholder="Tempo em minutos" onChange={event => setTempo_preparo(event.target.value)} required></Input>
+                                        <Input  disabled={disabled} type="number" name="tempo_preparo" placeholder="Tempo em Minutos" onChange={event => setTempo_preparo(event.target.value)} required></Input>
                                     </FormGroup>
                                     <FormGroup style={{ width: "50%" }}>
                                         <div className='my-0 d-flex justify-content-start'>
                                             <Label className={`me-2 ${styles.titlesColor}`}>Porções</Label>
                                             <i className={`medium material-icons ${styles.themeColor}`}>free_breakfast</i>
                                         </div>
-                                        <Input  disabled={disabled} type="number" name="porcoes" placeholder="Número de porções" onChange={event => setPorcoes(event.target.value)} required></Input>
+                                        <Input  disabled={disabled} type="number" name="porcoes" placeholder="Número de Porções" onChange={event => setPorcoes(event.target.value)} required></Input>
                                     </FormGroup>
                                 </div>
                             </div>
